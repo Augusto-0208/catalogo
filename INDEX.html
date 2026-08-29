@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>ASA TEC 3D · Catálogo</title>
+  
+  <!-- Font Awesome 6 (gratuito) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ===== BLOCO CABEÇALHO ===== -->
+  <div class="header">
+    <div class="logo">
+      <h1><i class="fas fa-cube"></i> ASA TEC 3D</h1>
+      <span style="font-size: 0.8rem; color: var(--cor-destaque); margin-left: 6px;">catálogo online</span>
+    </div>
+    <div class="header-actions">
+      <button class="dark-toggle-btn" id="darkToggleBtn">
+        <i class="fas fa-moon"></i> <span id="darkToggleLabel">Dark</span>
+      </button>
+      <button class="cart-btn" id="cartToggleBtn">
+        <i class="fas fa-shopping-cart"></i> Carrinho <span class="badge" id="cartBadge">0</span>
+      </button>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20ASA%20TEC%203D." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i> Fale conosco
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== BLOCO CARROSSEL ===== -->
+  <div class="carousel-wrapper">
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <div class="highlight-card promo" data-tema="promocao">
+            <i class="fas fa-tags"></i>
+            <span class="label">🔥 PROMOÇÃO DA SEMANA</span>
+            <span class="desc">até 30% off em suportes e acessórios</span>
+            <button class="carousel-tema-btn" data-tema="promocao">Ver Produtos</button>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="highlight-card novo" data-tema="novidades">
+            <i class="fas fa-star"></i>
+            <span class="label">✨ NOVIDADES</span>
+            <span class="desc">PLA premium e resina 4K chegaram!</span>
+            <button class="carousel-tema-btn" data-tema="novidades">Ver Novidades</button>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="highlight-card" data-tema="consignado">
+            <i class="fas fa-handshake"></i>
+            <span class="label">📦 CLIENTE CONSIGNADO</span>
+            <span class="desc">peça e receba em até 5 dias úteis</span>
+            <button class="carousel-tema-btn" data-tema="consignado">Saiba Mais</button>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="highlight-card promo" data-tema="destaque">
+            <i class="fas fa-gem"></i>
+            <span class="label">💎 DESTAQUE</span>
+            <span class="desc">miniaturas personalizadas sob encomenda</span>
+            <button class="carousel-tema-btn" data-tema="destaque">Ver Destaques</button>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="highlight-card novo" data-tema="resina">
+            <i class="fas fa-print"></i>
+            <span class="label">🆕 RESINA 4K</span>
+            <span class="desc">alta definição e acabamento premium</span>
+            <button class="carousel-tema-btn" data-tema="resina">Ver Produtos</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="carouselPrev"><i class="fas fa-chevron-left"></i></button>
+      <button class="carousel-btn" id="carouselNext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+
+  <!-- ===== BLOCO CONTEÚDO PRINCIPAL (com sidebar) ===== -->
+  <div class="main-content">
+    
+    <!-- ===== BLOCO SIDEBAR CATEGORIAS ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3><i class="fas fa-th-list"></i> Categorias</h3>
+        <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <!-- ===== BLOCO SIDEBAR - SEÇÃO PRINCIPAL ===== -->
+          <li class="sidebar-section">
+            <span class="sidebar-section-title"><i class="fas fa-store"></i> Catálogo</span>
+          </li>
+          <li><a href="#" class="category-link active" data-category="todos"><i class="fas fa-th"></i> Todos os Produtos</a></li>
+          
+          <!-- ===== BLOCO SIDEBAR - CONSIGNADO ===== -->
+          <li class="sidebar-section">
+            <span class="sidebar-section-title"><i class="fas fa-handshake"></i> Consignado</span>
+          </li>
+          <li><a href="#" class="category-link" data-category="consignado"><i class="fas fa-box"></i> Produtos Consignados</a></li>
+          <li><a href="#" class="category-link" data-category="consignado-solicitar"><i class="fas fa-paper-plane"></i> Solicitar Consignado</a></li>
+          
+          <!-- ===== BLOCO SIDEBAR - PERSONALIZÁVEIS ===== -->
+          <li class="sidebar-section">
+            <span class="sidebar-section-title"><i class="fas fa-paint-brush"></i> Personalizáveis</span>
+          </li>
+          <li><a href="#" class="category-link" data-category="personalizaveis"><i class="fas fa-cube"></i> Todos Personalizáveis</a></li>
+          
+          <!-- ===== BLOCO SIDEBAR - CATEGORIAS NORMAIS ===== -->
+          <li class="sidebar-section">
+            <span class="sidebar-section-title"><i class="fas fa-tags"></i> Categorias</span>
+          </li>
+          <li class="subcategory">
+            <a href="#" class="category-link" data-category="decoracao"><i class="fas fa-couch"></i> Decoração</a>
+            <ul class="subcategory-list">
+              <li><a href="#" class="subcategory-link" data-category="decoracao" data-sub="vasos">Vasos</a></li>
+              <li><a href="#" class="subcategory-link" data-category="decoracao" data-sub="quadros">Quadros</a></li>
+              <li><a href="#" class="subcategory-link" data-category="decoracao" data-sub="luminarias">Luminárias</a></li>
+            </ul>
+          </li>
+          <li class="subcategory">
+            <a href="#" class="category-link" data-category="utilitarios"><i class="fas fa-tools"></i> Utilitários</a>
+            <ul class="subcategory-list">
+              <li><a href="#" class="subcategory-link" data-category="utilitarios" data-sub="suportes">Suportes</a></li>
+              <li><a href="#" class="subcategory-link" data-category="utilitarios" data-sub="organizadores">Organizadores</a></li>
+            </ul>
+          </li>
+          <li class="subcategory">
+            <a href="#" class="category-link" data-category="miniaturas"><i class="fas fa-chess-queen"></i> Miniaturas</a>
+            <ul class="subcategory-list">
+              <li><a href="#" class="subcategory-link" data-category="miniaturas" data-sub="animais">Animais</a></li>
+              <li><a href="#" class="subcategory-link" data-category="miniaturas" data-sub="personagens">Personagens</a></li>
+              <li><a href="#" class="subcategory-link" data-category="miniaturas" data-sub="veiculos">Veículos</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="category-link" data-category="chaveiros"><i class="fas fa-key"></i> Chaveiros</a></li>
+          <li class="subcategory">
+            <a href="#" class="category-link" data-category="celulares"><i class="fas fa-mobile-alt"></i> Celulares</a>
+            <ul class="subcategory-list">
+              <li><a href="#" class="subcategory-link" data-category="celulares" data-sub="capas">Capas</a></li>
+              <li><a href="#" class="subcategory-link" data-category="celulares" data-sub="suportes">Suportes</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="category-link" data-category="tablets"><i class="fas fa-tablet-alt"></i> Tablets</a></li>
+          <li><a href="#" class="category-link" data-category="notebook"><i class="fas fa-laptop"></i> Notebook</a></li>
+          <li><a href="#" class="category-link" data-category="infantil"><i class="fas fa-child"></i> Infantil</a></li>
+          <li><a href="#" class="category-link" data-category="escritorio"><i class="fas fa-building"></i> Escritório</a></li>
+          <li><a href="#" class="category-link" data-category="acessorios"><i class="fas fa-plug"></i> Acessórios</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ===== BLOCO ÁREA DE PRODUTOS ===== -->
+    <main class="products-area">
+      <div class="products-header">
+        <div class="products-header-left">
+          <h2 id="categoryTitle"><i class="fas fa-th"></i> Todos os Produtos</h2>
+          <span id="productCount">200 produtos</span>
+        </div>
+        <!-- ===== BLOCO BARRA DE PESQUISA ===== -->
+        <div class="search-container">
+          <div class="search-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Buscar produtos..." class="search-input" />
+            <button class="search-clear" id="searchClear" style="display: none;">
+              <i class="fas fa-times"></i>
+            </button>
+            <button class="search-btn" id="searchBtn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </main>
+  </div>
+
+  <!-- ===== BLOCO RODAPÉ ===== -->
+  <div class="footer">
+    <i class="fas fa-cube"></i> ASA TEC 3D · catálogo online · <i class="fab fa-whatsapp"></i> clique em "QUERO ESTE"
+  </div>
+</div>
+
+<!-- ===== BLOCO MODAL CARRINHO ===== -->
+<div class="modal-overlay" id="cartModal">
+  <div class="modal-box">
+    <h3><i class="fas fa-shopping-cart"></i> Adicionar ao carrinho?</h3>
+    <p id="modalProductName">Deseja adicionar este produto ao carrinho ou ir direto para o WhatsApp?</p>
+    <div class="modal-actions">
+      <button class="btn-cart" id="modalAddCart"><i class="fas fa-plus"></i> Adicionar</button>
+      <button class="btn-wpp" id="modalGoWpp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+      <button class="btn-cancel" id="modalCancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BLOCO PAINEL CARRINHO ===== -->
+<div class="cart-panel" id="cartPanel">
+  <h3><i class="fas fa-shopping-cart"></i> Meu Carrinho</h3>
+  <div id="cartItems"></div>
+  <div class="cart-total-container">
+    <div class="cart-total" id="cartTotal">Total: R$ 0,00</div>
+  </div>
+  <div class="cart-actions">
+    <button class="btn-limpar" id="clearCartBtn"><i class="fas fa-trash"></i> Limpar</button>
+    <button class="btn-finalizar" id="finalizarCartBtn"><i class="fab fa-whatsapp"></i> Finalizar Compra</button>
+  </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script src="js/config.js"></script>
+<script src="js/produtos.js"></script>
+<script src="js/carrinho.js"></script>
+<script src="js/carrossel.js"></script>
+<script src="js/dark-mode.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

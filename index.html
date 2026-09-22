@@ -38,46 +38,42 @@
   <div class="carousel-wrapper">
     <div class="carousel-container">
       <div class="carousel-track" id="carouselTrack">
+        
+        <!-- ===== SLIDE 1: LOJA ===== -->
         <div class="carousel-slide">
-          <div class="highlight-card promo" data-tema="promocao">
-            <i class="fas fa-tags"></i>
-            <span class="label">🔥 PROMOÇÃO DA SEMANA</span>
-            <span class="desc">até 30% off em suportes e acessórios</span>
-            <button class="carousel-tema-btn" data-tema="promocao">Ver Produtos</button>
+          <div class="highlight-card image-card" data-tema="Loja">
+            <img src="img/Carrossel/Loja.jpeg" alt="Loja">
           </div>
         </div>
+
+        <!-- ===== SLIDE 2: INFANTIL ===== -->
         <div class="carousel-slide">
-          <div class="highlight-card novo" data-tema="novidades">
-            <i class="fas fa-star"></i>
-            <span class="label">✨ NOVIDADES</span>
-            <span class="desc">PLA premium e resina 4K chegaram!</span>
-            <button class="carousel-tema-btn" data-tema="novidades">Ver Novidades</button>
+          <div class="highlight-card image-card" data-tema="Infantil">
+            <img src="img/Carrossel/Infantil.jpeg" alt="Infantil">
           </div>
         </div>
+
+        <!-- ===== SLIDE 3: CONSIGNADO ===== -->
         <div class="carousel-slide">
-          <div class="highlight-card" data-tema="consignado">
-            <i class="fas fa-handshake"></i>
-            <span class="label">📦 CLIENTE CONSIGNADO</span>
-            <span class="desc">peça e receba em até 5 dias úteis</span>
-            <button class="carousel-tema-btn" data-tema="consignado">Saiba Mais</button>
+          <div class="highlight-card image-card" data-tema="Cliente Consignado">
+            <img src="img/Carrossel/Consignados.jpeg" alt="Cliente Consignado">
           </div>
         </div>
+
+        <!-- ===== SLIDE 4: LEMBRANCINHAS ===== -->
         <div class="carousel-slide">
-          <div class="highlight-card promo" data-tema="destaque">
-            <i class="fas fa-gem"></i>
-            <span class="label">💎 DESTAQUE</span>
-            <span class="desc">miniaturas personalizadas sob encomenda</span>
-            <button class="carousel-tema-btn" data-tema="destaque">Ver Destaques</button>
+          <div class="highlight-card image-card" data-tema="Lembrancinhas">
+            <img src="img/Carrossel/Lembrancinhas.jpeg" alt="Lembrancinhas">
           </div>
         </div>
+
+        <!-- ===== SLIDE 5: NATAL ===== -->
         <div class="carousel-slide">
-          <div class="highlight-card novo" data-tema="resina">
-            <i class="fas fa-print"></i>
-            <span class="label">🆕 RESINA 4K</span>
-            <span class="desc">alta definição e acabamento premium</span>
-            <button class="carousel-tema-btn" data-tema="resina">Ver Produtos</button>
+          <div class="highlight-card image-card" data-tema="Natal">
+            <img src="img/Carrossel/Natal.jpeg" alt="Natal">
           </div>
         </div>
+
       </div>
     </div>
     <div class="carousel-controls">
@@ -117,6 +113,14 @@
           </li>
           <li><a href="#" class="category-link" data-category="personalizaveis"><i class="fas fa-cube"></i> Todos Personalizáveis</a></li>
           
+          <!-- ===== BLOCO SIDEBAR - NOVAS CATEGORIAS ===== -->
+          <li class="sidebar-section">
+            <span class="sidebar-section-title"><i class="fas fa-star"></i> Novas Coleções</span>
+          </li>
+          <li><a href="#" class="category-link" data-category="natal"><i class="fas fa-tree"></i> Natal</a></li>
+          <li><a href="#" class="category-link" data-category="litofania"><i class="fas fa-layer-group"></i> Litofania</a></li>
+          <li><a href="#" class="category-link" data-category="religiosos"><i class="fas fa-cross"></i> Religiosos</a></li>
+
           <!-- ===== BLOCO SIDEBAR - CATEGORIAS NORMAIS ===== -->
           <li class="sidebar-section">
             <span class="sidebar-section-title"><i class="fas fa-tags"></i> Categorias</span>
@@ -219,6 +223,11 @@
   </div>
 </div>
 
+<!-- ===== BLOCO BOTÃO VOLTAR AO TOPO ===== -->
+<button id="backToTopBtn" class="back-to-top" title="Voltar ao topo">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
 <!-- ===== JAVASCRIPT ===== -->
 <script src="js/config.js"></script>
 <script src="js/produtos.js"></script>
@@ -226,6 +235,7 @@
 <script src="js/carrossel.js"></script>
 <script src="js/dark-mode.js"></script>
 <script src="js/main.js"></script>
+<script src="js/scroll.js"></script> <!-- 🔴 NOVO SCRIPT -->
 
 </body>
 </html>

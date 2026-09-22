@@ -2,7 +2,7 @@
 
 const CONFIG = {
   // Telefone da empresa (com DDD e código do país)
-  TELEFONE: '5511999999999',
+  TELEFONE: '5511914828652',
   
   // Nome da empresa
   NOME_EMPRESA: 'ASA TEC 3D',

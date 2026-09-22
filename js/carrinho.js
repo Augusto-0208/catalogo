@@ -188,6 +188,8 @@ function configurarEventosCarrinho() {
         adicionarAoCarrinho(pendingProduct);
         if (cartPanel) {
           cartPanel.classList.add('aberto');
+          // 🔴 NOVO: Rola a página até o carrinho
+          cartPanel.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
       }
     });
@@ -223,6 +225,8 @@ function configurarEventosCarrinho() {
         cartPanel.classList.toggle('aberto');
         if (cartPanel.classList.contains('aberto')) {
           renderizarCarrinho();
+          // 🔴 NOVO: Rola a página até o carrinho
+          cartPanel.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
       }
     });

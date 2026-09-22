@@ -384,6 +384,38 @@ body {
   color: #096b8a;
 }
 
+/* ===== BLOCO CSS - CARROSSEL COM IMAGEM ===== */
+.highlight-card.image-card {
+  /* Reseta todos os estilos visuais do card original */
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+  
+  /* Garante que ocupe 100% da largura disponível */
+  width: 100%;
+  max-width: 100%; /* 🔴 CORREÇÃO: Remove o limite de 500px do card original */
+  margin: 0;       /* 🔴 CORREÇÃO: Remove a centralização automática */
+  
+  display: block;  /* Muda de flex para block para a imagem se comportar como bloco */
+}
+
+.highlight-card.image-card img {
+  width: 100%;
+  height: auto;
+  max-height: none; /* Remove qualquer limite de altura */
+  object-fit: cover; /* Preenche o espaço perfeitamente */
+  display: block;
+  border-radius: 0; /* O arredondamento já é feito pelo carousel-wrapper */
+}
+
+/* Ajuste no Dark Mode para o card de imagem */
+body.dark-mode .highlight-card.image-card {
+  background: transparent;
+  border: none;
+}
+
 .carousel-tema-btn {
   background: var(--cor-principal);
   color: white;
@@ -615,6 +647,7 @@ body {
   border-color: var(--cor-destaque);
 }
 
+/* ===== BLOCO CSS - IMAGENS DOS PRODUTOS ===== */
 .product-image {
   width: 100%;
   aspect-ratio: 1/1;
@@ -627,10 +660,21 @@ body {
   color: var(--cor-destaque);
   margin-bottom: 0.8rem;
   transition: background 0.3s ease;
+  overflow: hidden; /* Garante que a imagem não saia do card */
 }
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+  display: block;
+  border-radius: 20px;
+}
+
 .product-image i {
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.05));
 }
+
 .product-name {
   font-weight: 700;
   font-size: 1.1rem;
@@ -1421,4 +1465,48 @@ body.dark-mode .personalizavel-banner .banner-btn {
     width: 100%;
     justify-content: center;
   }
+}
+
+/* ===== BLOCO CSS - BOTÃO VOLTAR AO TOPO ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--cor-principal);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: var(--cor-destaque);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Ajuste para o Modo Escuro */
+body.dark-mode .back-to-top {
+  background: #3b82f6;
+  color: white;
+}
+
+body.dark-mode .back-to-top:hover {
+  background: #2563eb;
 }

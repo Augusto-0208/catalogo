@@ -11,12 +11,14 @@ const carouselDots = document.getElementById('carouselDots');
 const carouselWrapper = document.querySelector('.carousel-wrapper');
 
 // Mapeamento de temas para categorias
+// ===== BLOCO CARROSSEL - MAPEAMENTO DE TEMAS =====
+// 💡 IMPORTANTE: As chaves aqui (antes dos dois pontos) devem ser EXATAMENTE iguais ao "data-tema" do seu HTML.
 const TEMA_CATEGORIAS = {
-  'promocao': ['utilitarios', 'acessorios'],
-  'novidades': ['decoracao', 'miniaturas'],
-  'consignado': ['utilitarios', 'escritorio'],
-  'destaque': ['miniaturas', 'decoracao'],
-  'resina': ['miniaturas', 'decoracao']
+  'Loja': ['todos'], // Ao clicar em "Loja", mostra todos os produtos
+  'Infantil': ['infantil'], // Mostra a categoria "infantil"
+  'Cliente Consignado': ['consignado'], // Mostra a categoria "consignado"
+  'Lembrancinhas': ['chaveiros', 'acessorios'], // Mostra chaveiros e acessórios (exemplo)
+  'Natal': ['natal'] // Mostra a categoria "natal"
 };
 
 function criarDots() {
@@ -73,7 +75,6 @@ function pararCarrosselAuto() {
 function redirecionarTema(tema) {
   const categorias = TEMA_CATEGORIAS[tema] || [];
   if (categorias.length > 0) {
-    // Abre a primeira categoria do tema
     const link = document.querySelector(`.category-link[data-category="${categorias[0]}"]`);
     if (link) {
       link.click();
@@ -110,16 +111,7 @@ function configurarEventosCarrossel() {
     carouselWrapper.addEventListener('mouseleave', iniciarCarrosselAuto);
   }
 
-  // Eventos dos botões de tema do carrossel
-  document.querySelectorAll('.carousel-tema-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      const tema = this.dataset.tema;
-      redirecionarTema(tema);
-    });
-  });
-
-  // Clique no card inteiro também redireciona
+  // Clique no card inteiro (imagem) redireciona para o tema
   document.querySelectorAll('.highlight-card').forEach(card => {
     card.addEventListener('click', function() {
       const tema = this.dataset.tema;

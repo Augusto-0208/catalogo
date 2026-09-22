@@ -29,6 +29,35 @@ const CATEGORIAS_ESPECIAIS = {
   }
 };
 
+// ===== BLOCO MAIN - FUNÇÃO AUXILIAR PARA GERAR HTML DO PRODUTO =====
+
+function gerarHtmlProduto(p) {
+  let tagHtml = '';
+  if (p.tipo === 'consignado') tagHtml = `<span class="tag-consignado"><i class="fas fa-handshake"></i> CONSIGNADO</span>`;
+  else if (p.tipo === 'personalizavel') tagHtml = `<span class="tag-personalizavel"><i class="fas fa-paint-brush"></i> PERSONALIZÁVEL</span>`;
+  else if (p.tag === 'novo') tagHtml = `<span class="tag-novo"><i class="fas fa-bolt"></i> NOVO</span>`;
+  else if (p.tag === 'promo') tagHtml = `<span class="tag-promo"><i class="fas fa-fire"></i> PROMO</span>`;
+  else if (p.tag === 'destaque') tagHtml = `<span class="tag-destaque"><i class="fas fa-star"></i> DESTAQUE</span>`;
+
+  // Lógica da Imagem: Se tiver "img", usa a tag <img>. Se não, usa o ícone.
+  const imgHtml = p.img
+    ? `<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" /><i class="fas ${p.icon}" style="display: none;"></i>`
+    : `<i class="fas ${p.icon}"></i>`;
+
+  return `
+    <div class="product-card" data-category="${p.category}" data-sub="${p.sub || ''}">
+      <div class="product-image">${imgHtml}</div>
+      ${tagHtml}
+      <div class="product-name">${p.name}</div>
+      <div class="product-desc">${p.desc}</div>
+      <div class="product-price">${p.price}</div>
+      <button class="btn-whatsapp" data-id="${p.id}" style="border:none;">
+        <i class="fab fa-whatsapp"></i> QUERO ESTE
+      </button>
+    </div>
+  `;
+}
+
 // ===== BLOCO MAIN - FUNÇÃO PARA RENDERIZAR BANNERS =====
 
 function renderizarBannerEspecial(category) {
@@ -185,22 +214,7 @@ function renderProducts(category, sub = null) {
     }
     
     filtered.forEach(p => {
-      let tagHtml = '';
-      if (p.tipo === 'consignado') tagHtml = `<span class="tag-consignado"><i class="fas fa-handshake"></i> CONSIGNADO</span>`;
-      else if (p.tipo === 'personalizavel') tagHtml = `<span class="tag-personalizavel"><i class="fas fa-paint-brush"></i> PERSONALIZÁVEL</span>`;
-
-      html += `
-        <div class="product-card" data-category="${p.category}" data-sub="${p.sub || ''}">
-          <div class="product-image"><i class="fas ${p.icon}"></i></div>
-          ${tagHtml}
-          <div class="product-name">${p.name}</div>
-          <div class="product-desc">${p.desc}</div>
-          <div class="product-price">${p.price}</div>
-          <button class="btn-whatsapp" data-id="${p.id}" style="border:none;">
-            <i class="fab fa-whatsapp"></i> QUERO ESTE
-          </button>
-        </div>
-      `;
+      html += gerarHtmlProduto(p);
     });
     
     grid.innerHTML = html;
@@ -242,23 +256,7 @@ function renderProducts(category, sub = null) {
 
   let html = '';
   filtered.forEach(p => {
-    let tagHtml = '';
-    if (p.tag === 'novo') tagHtml = `<span class="tag-novo"><i class="fas fa-bolt"></i> NOVO</span>`;
-    else if (p.tag === 'promo') tagHtml = `<span class="tag-promo"><i class="fas fa-fire"></i> PROMO</span>`;
-    else if (p.tag === 'destaque') tagHtml = `<span class="tag-destaque"><i class="fas fa-star"></i> DESTAQUE</span>`;
-
-    html += `
-      <div class="product-card" data-category="${p.category}" data-sub="${p.sub || ''}">
-        <div class="product-image"><i class="fas ${p.icon}"></i></div>
-        ${tagHtml}
-        <div class="product-name">${p.name}</div>
-        <div class="product-desc">${p.desc}</div>
-        <div class="product-price">${p.price}</div>
-        <button class="btn-whatsapp" data-id="${p.id}" style="border:none;">
-          <i class="fab fa-whatsapp"></i> QUERO ESTE
-        </button>
-      </div>
-    `;
+    html += gerarHtmlProduto(p);
   });
 
   grid.innerHTML = html;
@@ -349,25 +347,7 @@ function filtrarPorPesquisa(termo) {
   
   let html = '';
   resultados.forEach(p => {
-    let tagHtml = '';
-    if (p.tipo === 'consignado') tagHtml = `<span class="tag-consignado"><i class="fas fa-handshake"></i> CONSIGNADO</span>`;
-    else if (p.tipo === 'personalizavel') tagHtml = `<span class="tag-personalizavel"><i class="fas fa-paint-brush"></i> PERSONALIZÁVEL</span>`;
-    else if (p.tag === 'novo') tagHtml = `<span class="tag-novo"><i class="fas fa-bolt"></i> NOVO</span>`;
-    else if (p.tag === 'promo') tagHtml = `<span class="tag-promo"><i class="fas fa-fire"></i> PROMO</span>`;
-    else if (p.tag === 'destaque') tagHtml = `<span class="tag-destaque"><i class="fas fa-star"></i> DESTAQUE</span>`;
-
-    html += `
-      <div class="product-card" data-category="${p.category}" data-sub="${p.sub || ''}">
-        <div class="product-image"><i class="fas ${p.icon}"></i></div>
-        ${tagHtml}
-        <div class="product-name">${p.name}</div>
-        <div class="product-desc">${p.desc}</div>
-        <div class="product-price">${p.price}</div>
-        <button class="btn-whatsapp" data-id="${p.id}" style="border:none;">
-          <i class="fab fa-whatsapp"></i> QUERO ESTE
-        </button>
-      </div>
-    `;
+    html += gerarHtmlProduto(p);
   });
   
   grid.innerHTML = html;
